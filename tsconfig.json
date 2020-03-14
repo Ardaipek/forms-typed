@@ -23,7 +23,10 @@
       "es2018",
       "dom"
     ],
-    "incremental": true
+    "incremental": true,
+    "paths": {
+      "@lib/*": ["./lib/*"]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
