@@ -16,11 +16,55 @@ And MORE...
     ```
 
 ## See it in Action
-SFC video overview - missing file](./assets/sfc-video-overview.gif)
-<video width="100%"  controls autoplay>
-  <source src="./assets/sfc-video-overview.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
+![SFC video overview - missing file](./assets/sfc-video-overview.gif)
+
+# Getting started
+
+* `npm install npx-show-form-control`
+* then in your app.module.ts (or feature module)
+  ```ts
+  import { ShowFormControlModule } from 'npx-show-form-control-module';
+  import { environment } from 'environment';
+
+  @NgModule({
+    imports:[
+      //...
+      ShowFormControlModule.for(environment.production ? 'prod' : 'dev');
+    ]
+  })
+  export class AppModule {}
+  ```
+* in any component template 
+    ```ts
+    export class MyComponent {
+      form = new FormGroup({name: new FormControl()});
+      // ...
+    }
+    ```
+    ```html
+    <sfc-show-form-control [control]="form"></sfc-show-form-control>
+    ```
+* Done!
+
+# Configuration
+
+## ShowFormControlModule
+
+Static method `for` accepts `prod` or `dev` as parameter values and **DISABLES** the control for `prod` 
+ * `ShowFormControlModule.for('prod')` - disabled
+ * `ShowFormControlModule.for('dev')` - enabled
+ * `ShowFormControlModule.for(environment.production ? 'prod' : 'dev');` - dynamic
+
+## ShowFormControlComponent
+ * Input - `control` the AbstractControl instance - `FormControl`, `FormGroup` or `FormArray` we want to visualize
+ * Input - `name` how to name the window 
+    ```html
+    <sfc-show-form-control [control]="form" name="person form"></sfc-show-form-control>
+    ```
+  * Input - `closed` - true/false - minimizes/maximizes the window
+
+
+---
 This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.2.
 
 ## Code scaffolding

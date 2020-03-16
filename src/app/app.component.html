@@ -8,8 +8,9 @@
     [(ngModel)]="person"
     #controlDirective="ngModel"
   ></fty-person-contact>
-  <show-form-control
+  <sfc-show-form-control
     [control]="controlDirective.control"
+    [closed]="true"
     name="person"
-  ></show-form-control>
+  ></sfc-show-form-control>
 </div>

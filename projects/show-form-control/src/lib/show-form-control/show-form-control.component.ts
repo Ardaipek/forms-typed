@@ -6,7 +6,7 @@ let count = 0;
 
 @Component({
   // tslint:disable-next-line:component-selector
-  selector: 'show-form-control',
+  selector: 'sfc-show-form-control',
   templateUrl: './show-form-control.component.html',
   styleUrls: ['./show-form-control.component.scss'],
 })
